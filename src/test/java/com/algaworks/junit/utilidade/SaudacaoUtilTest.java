@@ -9,8 +9,13 @@ class SaudacaoUtilTest {
 
     @Test
     public void saudarComBomDia() {
+        //Arrenge
         int horaValida = 9;
+
+        //Act
         String saudacao = saudar(horaValida);
+
+        //Assert
         assertEquals("Bom dia", saudacao);
     }
 
@@ -30,14 +35,15 @@ class SaudacaoUtilTest {
 
     @Test
     public void deveLancarException() {
-        IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
-                () -> saudar(-10));
-        assertEquals("Hora inválida", illegalArgumentException.getMessage());
+        int horaInvalida = -10;
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> saudar(horaInvalida));
+        assertEquals("Hora inválida", ex.getMessage());
     }
 
     @Test
     public void naoDeveLancarException() {
-        assertDoesNotThrow(()-> saudar(0));
+        int horaValida = 0;
+        assertDoesNotThrow(()-> saudar(horaValida));
     }
 
 }
