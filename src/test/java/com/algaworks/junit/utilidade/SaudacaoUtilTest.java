@@ -1,52 +1,44 @@
 package com.algaworks.junit.utilidade;
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import static com.algaworks.junit.utilidade.SaudacaoUtil.saudar;
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Teste utilitarios de saudação")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class SaudacaoUtilTest {
 
     @Test
-    @DisplayName("Deve saudar com bom dia")
-    public void saudarComBomDia() {
-        //Arrenge
+    public void Dado_horario_matuino_Quando_saudar_Entao_deve_retornar_bom_dia() {
         int horaValida = 9;
-
-        //Act
         String saudacao = saudar(horaValida);
-
-        //Assert
         assertEquals("Bom dia", saudacao);
     }
 
     @Test
-    @DisplayName("Deve saudar com boa tarde")
-    public void saudarComBoaTarde() {
+    public void Dado_um_horario_vespertino_Quando_saudar__Entao_deve_retornar_boa_tarde() {
         int horaValida = 15;
         String saudacao = saudar(horaValida);
         assertEquals("Boa tarde", saudacao);
     }
 
     @Test
-    @DisplayName("Deve saudar com boa noite")
-    public void saudarComBoaNoite() {
+    public void Dado_um_horario_noturno_Quando_saudar_Entao_deve_retornar_boa_noite() {
         int horaValida = 22;
         String saudacao = saudar(horaValida);
         assertEquals("Boa noite", saudacao);
     }
 
     @Test
-    @DisplayName("Deve lançar uma Exception")
-    public void deveLancarException() {
+    public void Dado_uma_hora_invalida_Quando_saudar_entao_deve_lancar_exception() {
         int horaInvalida = -10;
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> saudar(horaInvalida));
         assertEquals("Hora inválida", ex.getMessage());
     }
 
     @Test
-    public void naoDeveLancarException() {
+    public void Dado_uma_hora_valida_Quando_saudar_Entao_nao_deve_lancar_exeption() {
         int horaValida = 0;
         assertDoesNotThrow(()-> saudar(horaValida));
     }
