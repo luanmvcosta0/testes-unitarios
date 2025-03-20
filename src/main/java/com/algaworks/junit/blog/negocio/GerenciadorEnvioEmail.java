@@ -8,8 +8,8 @@ public class GerenciadorEnvioEmail {
 
     void enviarEmail(Mensagem mensagem) {
         try {
-            Email email = new SimpleEmail();
-            email.setHostName("smtp.gmail.com");
+                Email email = new SimpleEmail();
+                email.setHostName("smtp.gmail.com");
             email.setSmtpPort(465);
             email.setAuthenticator(new DefaultAuthenticator("algatestes.algaworks", ""));
             email.setSSLOnConnect(true);
