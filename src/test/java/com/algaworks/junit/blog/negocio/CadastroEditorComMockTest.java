@@ -11,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -35,7 +34,11 @@ public class CadastroEditorComMockTest {
         editor = new Editor(null, "Luan", "luanmvcosta@email.com", BigDecimal.TEN, true);
 
         Mockito.when(armazenamentoEditor.salvar(editor))
-                .thenReturn(new Editor(1L, "Luan", "luanmvcosta@email.com", BigDecimal.TEN, true));
+                .thenAnswer(invocacao -> {
+                    Editor editorPassado = invocacao.getArgument(0, Editor.class);
+                    editorPassado.setId(1L);
+                    return editorPassado;
+                });
     }
 
     @Test
