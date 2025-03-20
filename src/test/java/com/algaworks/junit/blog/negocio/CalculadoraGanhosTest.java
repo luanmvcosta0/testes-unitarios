@@ -5,9 +5,7 @@ import com.algaworks.junit.blog.modelo.Ganhos;
 import com.algaworks.junit.blog.modelo.Post;
 import com.algaworks.junit.blog.utilidade.ProcessadorTextoSimples;
 import org.junit.jupiter.api.*;
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)

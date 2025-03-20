@@ -3,7 +3,6 @@ package com.algaworks.junit.blog.negocio;
 import com.algaworks.junit.blog.modelo.Editor;
 import com.algaworks.junit.blog.modelo.Ganhos;
 import com.algaworks.junit.blog.modelo.Post;
-
 import java.math.BigDecimal;
 import java.util.Objects;
 
